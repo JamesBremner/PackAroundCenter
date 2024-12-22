@@ -3,6 +3,7 @@ VPATH = ./src
 
 	# compiler include search paths
 INCS = -I./include \
+	-I../PackEngine/src \
 	-I../windex/include \
 	-I../raven-set \
 
@@ -20,7 +21,8 @@ CCflags = -std=c++17 $(OPT) -D_mingw_
 
 # sources
 OBJ_starter = \
-	$(ODIR)/main.o 
+	$(ODIR)/main.o \
+	$(ODIR)/cGUI.o \
 
 ### COMPILE
 
@@ -36,4 +38,6 @@ starter: $(OBJ_starter)
 .PHONY: clean
 clean:
 	del /q .vscode\\obj\\*.o
+
+rebuild: clean starter
 
